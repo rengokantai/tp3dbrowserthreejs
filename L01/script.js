@@ -28,14 +28,26 @@ var createCube = function(){
 	var mesh = new THREE.Mesh(geometry,material);
 	return mesh;
 }
+
+var draw = function(scene,camera){
+	window.requestAnimationFrame(function(){
+		renderer.render(scene,camera);
+		draw(scene,camera);
+	})
+}
+
+
+
 var camera = createCamera();
 var renderer = createRenderer();
 var light = createLight();
 var cube = createCube();
 
 cube.rotation.x = degreesToRadians(45);
+cube.rotation.y = degreesToRadians(45);
 scene.add(light);
 scene.add(camera);
 scene.add(cube);
 
-renderer.render(scene,camera);
+//renderer.render(scene,camera);
+draw(scene,camera);
