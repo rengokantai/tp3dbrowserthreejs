@@ -48,7 +48,7 @@ var createCube = function(){
 
 var draw = function(scene,camera,cube){
 	window.requestAnimationFrame(function(){
-		cube.rotation.y = cube.rotation.y+0.01;
+		//cube.rotation.y = cube.rotation.y+0.01;
 		renderer.render(scene,camera);
 		draw(scene,camera,cube);
 	})
@@ -67,5 +67,10 @@ scene.add(light);
 scene.add(camera);
 scene.add(cube);
 
+var rollDice = function(){
+	console.log(cube);
+}
+
 //renderer.render(scene,camera);
+document.addEventListener('click',rollDice);
 draw(scene,camera,cube);
