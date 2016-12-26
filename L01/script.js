@@ -1,5 +1,7 @@
 var scene = new THREE.Scene();
-
+var degreesToRadians = function(degrees){
+	return degrees*(Math.PI/180);
+}
 var createCamera = function(){
 	var camera = new THREE.PerspectiveCamera(35,window.innerWidth/window.innerHeight,1,1000);
 	camera.position.z=100;
@@ -30,6 +32,8 @@ var camera = createCamera();
 var renderer = createRenderer();
 var light = createLight();
 var cube = createCube();
+
+cube.rotation.x = degreesToRadians(45);
 scene.add(light);
 scene.add(camera);
 scene.add(cube);
