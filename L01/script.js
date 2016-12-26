@@ -29,10 +29,11 @@ var createCube = function(){
 	return mesh;
 }
 
-var draw = function(scene,camera){
+var draw = function(scene,camera,cube){
 	window.requestAnimationFrame(function(){
+		cube.rotation.y = cube.rotation.y+0.01;
 		renderer.render(scene,camera);
-		draw(scene,camera);
+		draw(scene,camera,cube);
 	})
 }
 
@@ -43,11 +44,11 @@ var renderer = createRenderer();
 var light = createLight();
 var cube = createCube();
 
-cube.rotation.x = degreesToRadians(45);
-cube.rotation.y = degreesToRadians(45);
+//cube.rotation.x = degreesToRadians(45);
+//cube.rotation.y = degreesToRadians(45);
 scene.add(light);
 scene.add(camera);
 scene.add(cube);
 
 //renderer.render(scene,camera);
-draw(scene,camera);
+draw(scene,camera,cube);
