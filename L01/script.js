@@ -23,6 +23,14 @@ var createLight = function(){
 }
 
 var createCube = function(){
+
+	var textureLoader = new THREE.TextureLoader();
+	var texture1 = textureLoader.load('textures/1.jpg');
+	var texture2 = textureLoader.load('textures/2.jpg');
+	var texture3 = textureLoader.load('textures/3.jpg');
+	var texture4 = textureLoader.load('textures/4.jpg');
+	var texture5 = textureLoader.load('textures/5.jpg');
+	var texture6 = textureLoader.load('textures/6.jpg');
 	var geometry = new THREE.BoxGeometry(20,20,20);
 	var material = new THREE.MeshNormalMaterial();
 	var mesh = new THREE.Mesh(geometry,material);
