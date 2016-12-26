@@ -31,8 +31,17 @@ var createCube = function(){
 	var texture4 = textureLoader.load('textures/4.jpg');
 	var texture5 = textureLoader.load('textures/5.jpg');
 	var texture6 = textureLoader.load('textures/6.jpg');
+
+	var materials = [
+		new THREE.MeshLambertMaterial({map:texture1}),
+		new THREE.MeshLambertMaterial({map:texture2}),
+		new THREE.MeshLambertMaterial({map:texture3}),
+		new THREE.MeshLambertMaterial({map:texture4}),
+		new THREE.MeshLambertMaterial({map:texture5}),
+		new THREE.MeshLambertMaterial({map:texture6})
+	]
 	var geometry = new THREE.BoxGeometry(20,20,20);
-	var material = new THREE.MeshNormalMaterial();
+	var material = new THREE.MultiMaterial(materials);
 	var mesh = new THREE.Mesh(geometry,material);
 	return mesh;
 }
