@@ -2,7 +2,7 @@ var scene = new THREE.Scene();
 
 var createCamera = function(){
 	var camera = new THREE.PerspectiveCamera(35,window.innerWidth/window.innerHeight,1,1000);
-	camera.position.z=10;
+	camera.position.z=100;
 	return camera;
 }
 
@@ -19,9 +19,19 @@ var createLight = function(){
 	light.position.set(0,0,50);
 	return light;
 }
+
+var createCube = function(){
+	var geometry = new THREE.BoxGeometry(20,20,20);
+	var material = new THREE.MeshNormalMaterial();
+	var mesh = new THREE.Mesh(geometry,material);
+	return mesh;
+}
 var camera = createCamera();
 var renderer = createRenderer();
 var light = createLight();
+var cube = createCube();
 scene.add(light);
+scene.add(camera);
+scene.add(cube);
 
 renderer.render(scene,camera);
